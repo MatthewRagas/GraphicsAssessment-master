@@ -169,7 +169,6 @@
     <ClCompile Include="OBJMesh.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Skeleton.cpp" />
-    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bone.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -183,7 +182,6 @@
     <ClInclude Include="OBJMesh.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Skeleton.h" />
-    <ClInclude Include="Ball.h" />
     <ClInclude Include="Bone.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
@@ -194,14 +192,29 @@
     <None Include="phong.vert" />
     <None Include="simple.frag" />
     <None Include="simple.vert" />
-    <None Include="thorhammer.mtl">
+    <None Include="soulspear.mtl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Object Include="thorhammer.obj">
+    <Object Include="soulspear.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="soulspear_diffuse.tga">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="soulspear_normal.tga">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="soulspear_specular.tga">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

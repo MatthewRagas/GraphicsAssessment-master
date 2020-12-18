@@ -27,9 +27,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Bone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,9 +57,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bone.h">
@@ -103,13 +97,24 @@
     <None Include="phong.frag">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="thorhammer.mtl">
+    <None Include="soulspear.mtl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Object Include="thorhammer.obj">
+    <Object Include="soulspear.obj">
       <Filter>Resource Files</Filter>
     </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="soulspear_diffuse.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="soulspear_normal.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="soulspear_specular.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

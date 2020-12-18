@@ -106,8 +106,8 @@ bool Game::start()
 		return false;
 	}
 
-	//Load obj mesh
-	if (!m_objMesh.load("thorhammer.obj")) {
+	//Load obj mesh of soul spearau
+	if (!m_objMesh.load("soulspear.obj")) {
 		printf("Failed to load OBJmesh.\n");
 		return false;
 	}
@@ -130,14 +130,6 @@ bool Game::start()
 		0, 0, 1, 0,
 		0, 0, 0, 1
 	};
-	for ( int i = 0; i < NumberOfTrees; i++)
-	{
-		aie::OBJMesh tempMesh;
-		tempMesh.load("treeDecorated.obj");
-		trees.push_back(tempMesh);
-
-	}
-
 
 
 	//Create bones
@@ -199,7 +191,6 @@ bool Game::update(double deltaTime)
 		glm::sin(time * -5))
 	));
 
-	//m_skeleton->update(deltaTime);
 
 	return true;
 }
@@ -215,68 +206,12 @@ bool Game::draw()
 	//Clear the Gizmos
 	aie::Gizmos::clear();
 
-	aie::Gizmos::addTransform(mat4(1), 4.0f);
-
-	//vec4 white(1, 1, 1, 1);
-	//vec4 grey(0.5f, 0.5f, 0.5f, 1);
-
-	//for (int i = 0; i < 21; ++i) {
-	//	aie::Gizmos::addLine(
-	//		vec3(-10 + i, 0, 10),
-	//		vec3(-10 + i, 0, -10),
-	//		i == 10 ? white : grey);
-	//	aie::Gizmos::addLine(
-	//		vec3(10, 0, -10 + i),
-	//		vec3(-10, 0, -10 + i),
-	//		i == 10 ? white : grey);
-	//}
+	aie::Gizmos::addTransform(mat4(1), 4.0f);	
 
 	//Get the projection and view matrices
 	mat4 projectionMatrix = m_camera->getProjectionMatrix(m_width, m_height);
 	mat4 viewMatrix = m_camera->getViewMatrix();
-	//m_shader.bind();
-	//for(int i = 0; i < NumberOfTrees; i++)
-	//{
-	//	//Tree Position
-	//	glm::mat4 TreePos = {
-	//	1, 0, 0, 0,
-	//	0, 1, 0, 0,
-	//	0, 0, 1, 0,
-	//	0, 0, 0, 1
-	//	};
-	//	
-
-	//	//Bind camera
-	//	m_shader.bindUniform("CameraPosition", m_camera->getPosition());
-
-	//	//Bind light
-	//	m_shader.bindUniform("Ia", m_light.getAmbient());
-	//	m_shader.bindUniform("Id", m_light.getDiffuse());
-	//	m_shader.bindUniform("Is", m_light.getSpecular());
-	//	m_shader.bindUniform("LightDirection", m_light.getDirection());
-
-	//	m_shader.bindUniform("IaTwo", m_light2.getAmbient());
-	//	m_shader.bindUniform("IdTwo", m_light2.getDiffuse());
-	//	m_shader.bindUniform("IsTwo", m_light2.getSpecular());
-	//	m_shader.bindUniform("LightDirectionTwo", m_light2.getDirection());
-
-
-	//	//Bind and draw Earth
-	//	mat4 pvm = projectionMatrix * viewMatrix * TreePos;
-	//	m_shader.bindUniform("ProjectionViewModel", pvm);
-	//	m_shader.bindUniform("NormalMatrix",
-	//		glm::inverseTranspose(glm::mat3(TreePos)));
-	//	m_shader.bindUniform("ModelMatrix", TreePos);
-	//	m_shader.bindUniform("time", (float)glfwGetTime());
-
-
-
-	//	//Draw obj mesh
-	//	pvm = projectionMatrix * viewMatrix * TreePos;
-	//	m_shader.bindUniform("ProjectionViewModel", pvm);
-	//	//m_shader.bindUniform("diffuseTexture", 0);
-	//	trees[i].draw();
-	//}
+	
 	//Bind shader
 	m_shader.bind();
 
@@ -312,26 +247,7 @@ bool Game::draw()
 	m_shader.bindUniform("ProjectionViewModel", pvm);
 	
 	m_objMesh.draw();
-	for (int i = 0; i < NumberOfTrees; i++)
-	{
-		//Tree Position
-		glm::mat4 TreePos = {
-		1, sin(3* i), cos(12.0 - i * 3), cos(100*i),
-		sin(-5 *i), 1, 0, cos(12.0 - i * 4.0) * 0.503,
-		cos(12.0 - i * 4.0) * 0.503, tan(i + 5), 1, sin(2345 /542 * i),
-		0,sin(12.0 - i * 0.3f) * 0.503, cos(12.0 - i * 0.3f) * 0.503, 1
-		};
-		mat4 pvm = projectionMatrix * viewMatrix * TreePos;
-		m_shader.bindUniform("ProjectionViewModel", pvm);
-		m_shader.bindUniform("NormalMatrix",
-			glm::inverseTranspose(glm::mat3(TreePos)));
 
-		m_shader.bindUniform("diffuseTexture", 0);
-		m_shader.bindUniform("ModelMatrix", TreePos);
-		trees.at(i).draw();
-	}
-	
-	//m_skeleton->draw();
 
 	aie::Gizmos::draw(projectionMatrix * viewMatrix);
 

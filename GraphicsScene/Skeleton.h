@@ -6,6 +6,8 @@
 class Skeleton : public Actor
 {
 public:
+
+	//Array of bones for animation
 	Skeleton();
 	~Skeleton() {}
 
@@ -15,6 +17,8 @@ public:
 	void addBone(Bone* bone);
 
 private:
+
+	//Vector of bones
 	std::vector<Bone*> m_bones;
 };
 

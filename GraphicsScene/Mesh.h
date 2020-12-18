@@ -21,13 +21,20 @@ public:
 		const Vertex* vertices,
 		unsigned int indexCount = 0,
 		unsigned int* indices = nullptr);
+
+	//Create a quad
 	void initializeQuad();
+	//Create a cube
 	void initializeCube();
 
+	//Draw this mesh
 	virtual void draw();
 
 protected:
+
+	//The amount of triangles that form this object
 	unsigned int m_triCount;
+	//Vertex array objects, vertex buffer, index buffer objects
 	unsigned int m_vao, m_vbo, m_ibo;
 };
 
