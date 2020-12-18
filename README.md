@@ -1,3 +1,3 @@
 
 
- https://matthewragas.github.io/GraphicsAssessment-master/docs/
+https://matthewragas.github.io/GraphicsAssessment-master/
